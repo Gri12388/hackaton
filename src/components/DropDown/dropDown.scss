@@ -1,0 +1,72 @@
+@use '../../assets/styles/variables.scss' as v;
+@use '../../assets/styles/mixins.scss' as m;
+
+.selectWrapper {
+  position: relative;
+  display: flex;
+  height: 40px;
+  margin-bottom: 5px;
+  padding: 0 12px 0 12px;
+  border: solid 2px v.$black;
+  border-radius: 20px;
+}
+
+.select {
+  @include m.text4;
+  width: 100%;
+  min-width: 300px;
+  height: 100%;
+  outline: none;
+  background-color: v.$transparent
+}
+
+%textBase {
+  height: 20px;
+  padding: 0 12px 0 12px;
+}
+
+.labelWrapper {
+  @extend %textBase;
+  margin-bottom: 5px;
+}
+
+.selectWrapper {
+  position: relative;
+  display: flex;
+  height: 40px;
+  margin-bottom: 5px;
+  padding: 0 12px 0 12px;
+  border: solid 2px v.$black;
+  border-radius: 20px;
+}
+
+.selectWrapperGood {
+  @extend .selectWrapper;
+  border-color: v.$green;
+}
+
+.selectWrapperBad {
+  @extend .selectWrapper;
+  border-color: v.$red;
+}
+
+.selectWrapperFocused {
+  @extend .selectWrapper;
+  border-color: v.$blue;
+}
+
+.label {
+  @include m.text1;
+}
+
+.placeholder {
+  @include m.text3;
+}
+
+.errorWrapper {
+  @extend %textBase;
+}
+
+.error {
+  @include m.text5;
+}

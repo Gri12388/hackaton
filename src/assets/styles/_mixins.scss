@@ -1,0 +1,106 @@
+@use './variables.scss' as v; 
+
+%button {
+  width: fit-content;
+  min-width: 100px;
+  height: 48px;
+  padding: 0 10px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: v.$t05s;
+}
+
+@mixin text($fontFamily, $fontSize, $lineHeight, $color, $letterSpacing: 0px) {
+  font: {
+    family: $fontFamily;
+    size: $fontSize;
+  }
+  line-height: $lineHeight;
+  letter-spacing: $letterSpacing;
+  color: $color;
+}
+
+@mixin text1 {
+  @include text(v.$inter800 , 12px, 15px, v.$gray, 2px);
+  cursor: default;
+}
+
+@mixin text2 {
+  @include text(v.$inter400, 14px, 17px, v.$black);
+  cursor: default;
+}
+
+@mixin text3 {
+  @include text(v.$inter400, 18px, 22px, v.$gray);
+  cursor: default;
+}
+
+@mixin text4 {
+  @include text(v.$inter400, 18px, 22px, v.$black);
+  cursor: default;
+}
+
+@mixin text5 {
+  @include text(v.$inter400 , 12px, 15px, v.$red);
+  cursor: default;
+}
+
+@mixin text6 {
+  @include text(v.$inter700, 18px, 36px, v.$white);
+}
+
+@mixin text7 {
+  @include text(v.$inter700, 18px, 36px, v.$gray);
+  cursor: default;
+}
+
+@mixin text8 {
+  @include text(v.$inter400, 18px, 22px, v.$blue);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@mixin buttonInactiv {
+  @extend %button;
+  @include text7;
+  background-color: v.$grayLight;
+}
+
+@mixin button1 {
+  @extend %button;
+  @include text6;
+  background-color: v.$pink;
+  &:hover {
+    background-color: v.$pinkDark;
+  };
+  &:active {
+    background-color: v.$pinkDarkest;
+  }
+}
+
+@mixin button2 {
+  @extend %button;
+  @include text6;
+  background-color: v.$green;
+  &:hover {
+    background-color: v.$greenDark;
+  };
+  &:active {
+    background-color: v.$greenDarkest;
+  }
+}
+
+@mixin button3 {
+  @extend %button;
+  @include text5;
+  background-color: v.$transparent;
+  border: solid 1px v.$gray;
+  &:hover {
+    color: v.$green;
+    border-color: v.$green;
+  };
+  &:active {
+    color: v.$greenDarkest;
+    border-color: v.$greenDarkest;
+  }
+}

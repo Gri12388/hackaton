@@ -1,0 +1,19 @@
+@use '../../assets/styles/mixins.scss' as m;
+
+.container {
+  height: fit-content;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+}
+
+.button {
+  @include m.button2;
+}
+
+.buttonInactiv {
+  @include m.buttonInactiv;
+}

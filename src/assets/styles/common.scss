@@ -1,0 +1,19 @@
+@use './variables.scss' as v; 
+@use './mixins.scss' as m;
+@import url('./fonts.scss');
+@import url('./normalize.scss');
+
+.container {
+  max-width: 1440px;
+  height: 800px;
+  margin: 0 auto;
+  background-color: v.$yellow;
+}
+
+.button2 {
+  @include m.button2;
+}
+
+.buttonInactiv {
+  @include m.buttonInactiv;
+}

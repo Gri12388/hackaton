@@ -1,0 +1,172 @@
+@use 'sass:math' as math;
+@use '../../assets/styles/variables.scss' as v;
+@use '../../assets/styles/mixins.scss' as m;
+
+.container {
+  display: flex;
+}
+
+.aside {
+  width: 300px;
+  height: 100%;
+  padding: 100px 5px 0px 5px;
+  background-color: blue;
+}
+
+.logoWrapper {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background-color: red;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  background-color: pink;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  background-color: azure;
+}
+
+.burgerWrapper {
+  display: none;
+}
+
+.lines {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  //background-color: v.$white;
+  background-color: blue;
+  transition: v.$t05s;
+}
+
+.line1 {
+  top: 0;
+  &Cross {
+    width: math.hypot(100, 100) * 1%;
+    transform-origin: left center;
+    transform: rotate(45deg) translate(-1px, -1px);
+  }
+}
+
+.line2 {
+  top: 50%;
+  transform: translateY(-50%);
+  &Cross {
+    display: none;
+  }
+}
+
+.line3 {
+  bottom: 0;
+  &Cross {
+    width: math.hypot(100, 100) * 1%;
+    transform-origin: left center;
+    transform: rotate(-45deg) translate(-1px, 1px);
+  }
+}
+
+
+.lang {
+  @include m.text4;
+  width: 25px;
+  margin-left: auto;
+  height: fit-content;
+  background-color: pink;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  margin-left: 20px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.role {
+  @include m.text4;
+  width: fit-content;
+  min-width: 30px;
+  max-width: 100px;
+  margin-left: 20px;
+  height: fit-content;
+  background-color: pink;
+}
+
+.fullName {
+  @include m.text4;
+  width: fit-content;
+  min-width: 30px;
+  max-width: 100px;
+  margin-left: 20px;
+  height: fit-content;
+  background-color: pink;
+}
+
+.quitWrapper {
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+  background-color: red;
+}
+
+.desktop {
+  position: relative;
+  height: 100%;
+  background-color: yellowgreen;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  background-color: gray;
+  opacity: 70%;
+}
+
+
+@media (max-width: 849px) {
+  .aside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 90vh;
+    margin-top: 80px;
+    padding-top: 20px;
+    transform: translateX(-100%);
+    transition: v.$t05s;
+  }
+
+  .asideCross {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 300px;
+    height: 90vh;
+    margin-top: 80px;
+    padding: 20px 5px 0px 5px;
+    background-color: blue;
+    transform: translateX(0%);
+    transition: v.$t05s;
+  }
+
+  .burgerWrapper {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+  }
+}
