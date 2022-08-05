@@ -17,7 +17,7 @@
 .left {
   width: 60%;
   height: 100%;
-  background-color: green;
+  background-color: white;
 }
 
 .right {
@@ -60,3 +60,7 @@
   }
 }
 
+.button {
+  @include m.button2;
+  margin-left: 10px;
+}

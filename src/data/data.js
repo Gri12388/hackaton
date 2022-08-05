@@ -1,3 +1,15 @@
+
+export const hosts = {
+  host6210919553000: 'http://62.109.19.55:3000',
+}
+
+export const methods = {
+  delete: 'DELETE',
+  get: 'GET',
+  post: 'POST',
+  put: 'PUT',
+}
+
 export const validationErrors = {
   nameErrors: {
     noName: ['Type name', 'Введите имя'],
