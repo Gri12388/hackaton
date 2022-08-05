@@ -17,6 +17,11 @@ import {
   validationErrors,
 } from '../../data/data.js';
 
+import {
+  hosts,
+  methods,
+} from '../../data/data.js';
+
 import s from './regForm.scss';
 
 function RegForm() {
@@ -66,12 +71,47 @@ function RegForm() {
 
   function preventDefault(e) {
     e.preventDefault();
-    if(isAllValid) onSubmitHandler();
+    //if(isAllValid) onSubmitHandler();
   }
 
   function onSubmitHandler(e) {
-    console.log('hello, I am RegForm');
+    if (isAllValid) {
+      console.log('hello, I am RegForm');
+      sendReg();
+    }
   }
+
+  function createBody() {
+    const body = {
+      firstName: name,
+      lastName: surname,
+      password: password,
+      role: role,
+      email: email,
+    }
+    return JSON.stringify(body);
+  }
+
+  async function sendReg() {
+    try {
+      const response = await fetch(new URL('api/registration', hosts.host6210919553000), {
+        method: methods.post,
+        headers: {
+          'Content-Type': 'application/json',
+          mode: 'no-cors',
+          referrerPolicy: "unsafe-url",
+        },
+        body: createBody,
+      });
+      const result = await response.json();
+      console.log(result);
+    }
+    catch (err) {
+      console.error('Test is failed:', err);
+    }
+  }
+
+
 
   return (
     <form className={ s.container } onSubmit={ preventDefault }>
@@ -141,6 +181,7 @@ function RegForm() {
       <div>
         <InputText 
           id='regForm__password__id'
+          type='password'
           label={ languages.password[context.language] } 
           placeholder={ languages.typePassword[context.language] }
           setContent={ setPassword }
@@ -156,6 +197,7 @@ function RegForm() {
       <div>
         <InputText 
           id='regForm__passwordCopy__id'
+          type='password'
           label={ languages.passwordCopy[context.language] } 
           placeholder={ languages.repeatPassword[context.language] } 
           setContent={ setPasswordCopy }

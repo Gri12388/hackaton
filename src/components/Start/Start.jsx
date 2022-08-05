@@ -29,6 +29,8 @@ function Start() {
         method: methods.get,
         headers: {
           'Content-Type': 'application/json',
+          mode: 'no-cors',
+          referrerPolicy: "unsafe-url",
         }
       });
       const result = await response.json();
@@ -47,9 +49,11 @@ function Start() {
         method: methods.get,
         headers: {
           'Content-Type': 'application/json',
+          mode: 'no-cors',
+          referrerPolicy: "unsafe-url",
         }
       });
-      const result = await response.json();
+      const result = await response.text();
       console.log(result);
     }
     catch (err) {
@@ -64,12 +68,14 @@ function Start() {
         method: methods.post,
         headers: {
           'Content-Type': 'application/json',
+          mode: 'no-cors',
+          referrerPolicy: "unsafe-url",
         },
         body: {
           message: 'POST METHOD IS PASSED',
         }
       });
-      const result = await response.json();
+      const result = await response.text()();
       console.log(result);
     }
     catch(err) {
