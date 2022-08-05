@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 
 import { AppContext } from '../App/App.jsx';
 import InputText from '../InputText/InputText.jsx';
-import DropDown from '../DropDown/DropDown.jsx';
 
 import {
   checkEmail,
@@ -10,10 +9,7 @@ import {
   checkName,
   checkPassword,
   checkPasswordCopy,
-  checkRole,
   checkSurname,
-  languages,
-  roles,
   validationErrors,
 } from '../../data/data.js';
 
@@ -30,33 +26,29 @@ function RegForm() {
 
   const [name, setName] = useState('');
   const [isNameValid, setIsNameValid] = useState(false);
-  const [nameError, setNameError] = useState(validationErrors.nameErrors.noName[context.language]);
+  const [nameError, setNameError] = useState(validationErrors.nameErrors.noName);
 
   const [surname, setSurname] = useState('');
   const [isSurnameValid, setIsSurnameValid] = useState(false);
-  const [surnameError, setSurnameError] = useState(validationErrors.surnameErrors.noSurname[context.language]);
+  const [surnameError, setSurnameError] = useState(validationErrors.surnameErrors.noSurname);
 
   const [email, setEmail] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(false);
-  const [emailError, setEmailError] = useState(validationErrors.emailErrors.noEmail[context.language]);
-
-  const [role, setRole] = useState('');
-  const [isRoleValid, setIsRoleValid] = useState(false);
-  const [roleError, setRoleError] = useState(validationErrors.roleError.noRole[context.language]);
+  const [emailError, setEmailError] = useState(validationErrors.emailErrors.noEmail);
 
   const [password, setPassword] = useState('');
   const [isPasswordValid, setIsPasswordValid] = useState(false);
-  const [passwordError, setPasswordError] = useState(validationErrors.passwordErrors.noPassword[context.language]);
+  const [passwordError, setPasswordError] = useState(validationErrors.passwordErrors.noPassword);
 
   const [passwordCopy, setPasswordCopy] = useState('');
   const [isPasswordCopyValid, setIsPasswordCopyValid] = useState(false);
-  const [passwordCopyError, setPasswordCopyError] = useState(validationErrors.passwordErrors.noPassword[context.language]);
+  const [passwordCopyError, setPasswordCopyError] = useState(validationErrors.passwordErrors.noPassword);
 
   const [isAllValid, setIsAllValid] = useState(false);
 
   const [focusedElement, setFocusedElement] = useState(0);
 
-  const validationArray = [isNameValid, isSurnameValid, isEmailValid, isRoleValid, isPasswordValid, isPasswordCopyValid];
+  const validationArray = [isNameValid, isSurnameValid, isEmailValid, isPasswordValid, isPasswordCopyValid];
 
   useEffect(() => {
     setIsAllValid(checkIfAllValid(validationArray));
@@ -74,55 +66,46 @@ function RegForm() {
     //if(isAllValid) onSubmitHandler();
   }
 
-  function onSubmitHandler(e) {
-    if (isAllValid) {
-      console.log('hello, I am RegForm');
-      sendReg();
-    }
-  }
-
-  function createBody() {
-    const body = {
-      firstName: name,
-      lastName: surname,
-      password: password,
-      role: role,
-      email: email,
-    }
-    return JSON.stringify(body);
-  }
-
-  async function sendReg() {
+  async function onSubmitHandler(e) {
+    e.preventDefault();
     try {
-      const response = await fetch(new URL('api/registration', hosts.host6210919553000), {
-        method: methods.post,
+      const response = await fetch('http://62.109.19.55:8080/api/registration', {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           mode: 'no-cors',
           referrerPolicy: "unsafe-url",
         },
-        body: createBody(),
+        body: JSON.stringify({
+          "firstName": "Lester",
+          "lastName": "Freemon",
+          "password": "password1234",
+          "role": "STUDENT",
+          "email": "LesterFreemon@yandex.ru"
+        })
       });
-      const result = await response.json();
+      const result = await response.text();
       console.log(result);
     }
     catch (err) {
-      console.error('Test is failed:', err);
+      console.log(err);
     }
+
   }
 
 
-
   return (
-    <form className={ s.container } onSubmit={ preventDefault }>
+    <div className={ s.background }>
+      <div className={ s.container }>
+      <p className={ s.auth }>Авторизация</p>
+      <form onSubmit={ preventDefault }>
       <div>
         <InputText 
           id='regForm__name__id'
-          label={ languages.name[context.language] } 
-          placeholder={ languages.typeName[context.language] } 
+          placeholder='Введите имя' 
           setContent={ setName }
           isContentValid={ isNameValid }
-          checkContent={ checkName.bind(null, setIsNameValid, setNameError, context.language) }
+          checkContent={ checkName.bind(null, setIsNameValid, setNameError) }
           contentError={ nameError }
           onKeyDownHandler={ onKeyDownHandler }
           autofocus={ true }
@@ -133,11 +116,10 @@ function RegForm() {
       <div>
         <InputText 
           id='regForm__surname__id'
-          label={ languages.surname[context.language] }
-          placeholder={ languages.typeSurname[context.language] }
+          placeholder='Введите фамилию'
           setContent={ setSurname }
           isContentValid={ isSurnameValid }
-          checkContent={ checkSurname.bind(null, setIsSurnameValid, setSurnameError, context.language) }
+          checkContent={ checkSurname.bind(null, setIsSurnameValid, setSurnameError) }
           contentError={ surnameError }
           onKeyDownHandler={ onKeyDownHandler }
           autofocus={ false }
@@ -148,33 +130,14 @@ function RegForm() {
       <div>
         <InputText 
           id='regForm__email__id'
-          label={ languages.email[context.language] } 
-          placeholder={ languages.typeEmail[context.language] } 
+          placeholder='Введите e-mail' 
           setContent={ setEmail }
           isContentValid={ isEmailValid }
-          checkContent={ checkEmail.bind(null, setIsEmailValid, setEmailError, context.language) }
+          checkContent={ checkEmail.bind(null, setIsEmailValid, setEmailError) }
           contentError={ emailError }
           onKeyDownHandler={ onKeyDownHandler }
           autofocus={ false }
           focus={ focusedElement === 2 }
-        />
-      </div>
-      
-      <div>
-        <DropDown 
-          id='regForm__role__id'
-          label={ languages.role[context.language] }
-          name='role'
-          placeholder={ languages.chooseRole[context.language] }
-          options={[roles.teacher, roles.student]}
-          content={ role }
-          setContent={ setRole }
-          isContentValid={ isRoleValid }
-          contentError={ roleError }
-          checkContent={ checkRole.bind(null, setIsRoleValid, setRoleError, context.language) }
-          onKeyDownHandler={ onKeyDownHandler }
-          autofocus={ false }
-          focus={ focusedElement === 3 }
         />
       </div>
 
@@ -182,11 +145,10 @@ function RegForm() {
         <InputText 
           id='regForm__password__id'
           type='password'
-          label={ languages.password[context.language] } 
-          placeholder={ languages.typePassword[context.language] }
+          placeholder='Придумайте пароль'
           setContent={ setPassword }
           isContentValid={ isPasswordValid }
-          checkContent={ checkPassword.bind(null, setIsPasswordValid, setPasswordError, context.language) }
+          checkContent={ checkPassword.bind(null, setIsPasswordValid, setPasswordError) }
           contentError={ passwordError }
           onKeyDownHandler={ onKeyDownHandler }
           autofocus={ false }
@@ -194,15 +156,14 @@ function RegForm() {
         />
       </div>
 
-      <div>
+      <div className={ s.gap }>
         <InputText 
           id='regForm__passwordCopy__id'
           type='password'
-          label={ languages.passwordCopy[context.language] } 
-          placeholder={ languages.repeatPassword[context.language] } 
+          placeholder='Повторите пароль'
           setContent={ setPasswordCopy }
           isContentValid={ isPasswordCopyValid }
-          checkContent={ checkPasswordCopy.bind(null, setIsPasswordCopyValid, setPasswordCopyError, password, context.language) }
+          checkContent={ checkPasswordCopy.bind(null, setIsPasswordCopyValid, setPasswordCopyError, password) }
           contentError={ passwordCopyError }
           onKeyDownHandler={ onKeyDownHandler }
           autofocus={ false }
@@ -212,11 +173,14 @@ function RegForm() {
 
       <div className={ s.buttonWrapper }>
         <button 
-          className={ isAllValid ? s.button : s.buttonInactiv }
+          //className={ isAllValid ? s.button : s.buttonInactiv }
+          className={ s.button }
           onClick={ onSubmitHandler }
-        >{ languages.register[context.language] }</button>
+        >Зарегистрироваться</button>
       </div>
-    </form>
+      </form>
+      </div>
+    </div>
   );
 }
 

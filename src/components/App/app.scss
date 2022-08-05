@@ -1,5 +1,92 @@
-.body {
+@use '../../assets/styles/variables.scss' as v;
+@use '../../assets/styles/mixins.scss' as m;
+
+
+.container {
+  max-width: 1440px;
+  width: 100vw;
   height: 100vh;
-  overflow-y: hidden;
-  padding-right: 15px;
+  margin: 0 auto;
+  background-color: yellow;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 10%;
+  padding: 0 5%;
+  background-color: v.$background;
+}
+
+.main {
+  height: 80%;
+  background-color: v.$background;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  height: 10%;
+  padding: 0 5%;
+  border-top: solid 1px v.$demarkLine;
+  background-color: v.$background;
+}
+
+.logo {
+  width: 153px;
+  height: 57px;
+  margin-left: 20px;
+  background-color: red;
+}
+
+.link {
+  @include m.text3;
+  width: fit-content;
+  height: fit-content;
+  margin-left: 20px;
+
+}
+
+.bell {
+  width: 21px;
+  height: 21px;
+  margin-left: auto;
+  background-color: red;
+}
+
+.log {
+  @include m.buttonInactiv;
+  width: fit-content;
+  height: 30px;
+  margin-left: 20px;
+}
+
+.reg {
+  @include m.buttonInactiv;
+  width: fit-content;
+  height: 30px;
+  margin-left: 20px;
+}
+
+.subcontainer {
+  width: fit-content;
+  height: fit-content;
+  margin-left: 20px;
+}
+
+.phone {
+  @include m.text2;
+  width: fit-content;
+  height: fit-content;
+  margin-bottom: 19px;
+}
+
+.email {
+  @include m.text2;
+  width: fit-content;
+  height: fit-content;
+}
+
+.gap {
+  margin-left: auto;
 }

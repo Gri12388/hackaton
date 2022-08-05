@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 
 import Modal from '../Modal/Modal.jsx';
 
@@ -13,36 +13,32 @@ import s from './app.scss';
 export const AppContext = createContext({});
 
 function App() {
-
-  const [language, setLanguage] = useState(sessionStorage.getItem('lang'));
-  const [modalMode, setModalMode] = useState(modalModes.hidden);
-  const [modalMessage, setModalMessage] = useState('');
-
-  useEffect(() => {
-    if (!sessionStorage.getItem('lang')) sessionStorage.setItem('lang', 0);
-    setLanguage(+sessionStorage.getItem('lang'));
-  }, []);
-
-  console.log (language);
-
-  function turnScrollOff() {
-    document.querySelector('body').classList.add(s.body);
-    return <Modal modalMode={ modalMode } 
-                  setModalMode={ setModalMode } 
-                  modalMessage={ modalMessage } 
-                  setModalMessage={ setModalMessage } />
-  }
-
-  function turnScrollOn() {
-    document.querySelector('body').classList.remove(s.body);
-  }
-
-  return (
-    <AppContext.Provider value={{ language: language, setLanguage: setLanguage }}>
+  return(
+  <div className={ s.container }>
+    <header className={ s.header }>
+      <div className={ s.logo }></div>
+      <div className={ s.link }>Курсы</div>
+      <div className={ s.link }>Прогресс</div>
+      <div className={ s.bell }></div>
+      <Link to='auth' className={ s.log }>Вход</Link>
+      <Link to='reg' className={ s.reg }>Регистрация</Link>
+    </header>
+    <main className={ s.main }>
       <Outlet />
-      { modalMode !== modalModes.hidden ? turnScrollOff() : turnScrollOn() }
-    </AppContext.Provider>
+    </main>
+    <footer className={ s.footer }>
+      <div className={ s.logo }></div>
+      <div className={ s.subcontainer }>
+        <div className={ s.phone }>8 800 555 35 35</div>
+        <div className={ s.email }>404.study@proj.ru</div>
+      </div>
+      <div className={ `${s.link} ${s.gap}` }>Курсы</div>
+      <div className={ s.link }>Прогресс</div>
+      <div className={ s.link }>О компании</div>
+    </footer>
+  </div>
   );
+  
 }
 
 export default App;

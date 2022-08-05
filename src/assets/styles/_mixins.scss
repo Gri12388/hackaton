@@ -1,10 +1,13 @@
 @use './variables.scss' as v; 
 
 %button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: fit-content;
   min-width: 100px;
   height: 48px;
-  padding: 0 10px;
+  padding: 10px 21px;
   border-radius: 16px;
   cursor: pointer;
   transition: v.$t05s;
@@ -57,6 +60,11 @@
 @mixin text8 {
   @include text(v.$inter400, 18px, 22px, v.$blue);
   text-decoration: underline;
+  cursor: pointer;
+}
+
+@mixin title {
+  @include text(v.$inter800, 24px, 29px, v.$black);
   cursor: pointer;
 }
 

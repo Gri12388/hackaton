@@ -1,20 +1,19 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import App from './components/App/App.jsx';
-import Base from './components/Base/Base.jsx';
-import Start from './components/Start/Start.jsx';
+import LoginForm from './components/LoginForm/LoginForm.jsx';
+import RegForm from './components/RegForm/RegForm.jsx';
 
 const root = createRoot(document.getElementById('root'));
 
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path='/' element={ <Navigate to='/app/start' replace={ true } /> } />
-      <Route path='/app' element={ <App /> } >
-        <Route path='start' element={ <Start /> } />
-        <Route path='base' element={ <Base /> } />
+      <Route path='/' element={ <App /> }>
+        <Route path='auth' element={ <LoginForm /> } />
+        <Route path='reg' element={ <RegForm /> } />
       </Route>
     </Routes>
   </BrowserRouter>

@@ -12,38 +12,38 @@ export const methods = {
 
 export const validationErrors = {
   nameErrors: {
-    noName: ['Type name', 'Введите имя'],
-    shortName: ['Name is short', 'Имя слишком короткое'],
-    longName: ['Name is long', 'Имя слишком длинное'],
+    noName: 'Введите имя',
+    shortName: 'Имя слишком короткое',
+    longName: 'Имя слишком длинное',
   },
   surnameErrors: {
-    noSurname: ['Type surname', 'Введите фамилию'],
-    shortSurname: ['Surname is short', 'Фамилия слишком короткая'],
-    longSurname: ['Surname is long', 'Фамилия слишком длинная'],
+    noSurname: 'Введите фамилию',
+    shortSurname: 'Фамилия слишком короткая',
+    longSurname: 'Фамилия слишком длинная',
   },
   emailErrors: {
-    noEmail: ['Type email', 'Введите почту'],
-    wrongEmail: ['Wrong email', 'Почта неверна'],
+    noEmail: 'Введите почту',
+    wrongEmail: 'Почта неверна',
   },
   passwordErrors: {
-    noPassword: ['Type password', 'Введите пароль'],
-    noPasswordCopy: ['Repeat password', 'Повторите пароль'],
-    shortPassword: ['Password is short', 'Пароль слишком короткий'],
-    longPassword: ['Password is long', 'Пароль слишком длинный'],
-    noMatch: ['Passwords don\'t match', 'Пароли не совпадают'], 
+    noPassword: 'Введите пароль',
+    noPasswordCopy: 'Повторите пароль',
+    shortPassword: 'Пароль слишком короткий',
+    longPassword: 'Пароль слишком длинный',
+    noMatch: 'Пароли не совпадают', 
   },
   titleErrors: {
-    noTitle: ['Type title', 'Укажите название'],
-    longTitle: ['Title is long', 'Название слишком длинное'],
+    noTitle: 'Укажите название',
+    longTitle: 'Название слишком длинное',
   },
   descriptionError: {
-    noDescription: ['Type description', 'Введите описание'],
+    noDescription: 'Введите описание',
   },
   typeError: {
-    noType: ['Choose type', 'Выберите тип'],
+    noType: 'Выберите тип',
   },
   roleError: {
-    noRole: ['Choose role', 'Выберите статус'],
+    noRole: 'Выберите статус',
   }
 }
 
@@ -69,117 +69,89 @@ export const modalModes = {
   hidden: 'hidden',
 }
 
-export const languages = {
-  lang: ['EN', 'RU'],
-  name: ['Name', 'Имя'],
-  surname: ['Surname', 'Фамилия'],
-  role: ['Role', 'Статус'],
-  email: ['E-mail', 'Электронная почта'],
-  password: ['Password', 'Пароль'],
-  passwordCopy: ['Password copy', 'Копия пароля'],
-  typeName: ['Type your name', 'Введите Ваше имя'],
-  typeSurname: ['Type your surname', 'Введите Вашу фамилию'],
-  typeEmail: ['Type your e-mail', 'Введите Вашу почту'],
-  typePassword: ['Type your password', 'Введите Ваш пароль'],
-  chooseRole: ['Choose your role', 'Выберите Ваш статус'],
-  repeatPassword: ['Repeat your password', 'Повторите Ваш пароль'],
-  login: ['Login', 'Войти'],
-  register: ['Register', 'Зарегистрироваться'],
-  back: ['Back', 'Назад'],
-  student: ['student', 'студент'],
-  teacher: ['teacher', 'учитель'],
-}
-
 export function checkIfAllValid(array) {
   return array.every(item => item);
 }
 
-export function checkName(setIsContentValid, setContentError, lang, content) {
+export function checkName(setIsContentValid, setContentError, content) {
 
   if (content.length === 0) {
     setIsContentValid(false);
-    setContentError(validationErrors.nameErrors.noName[lang]);
+    setContentError(validationErrors.nameErrors.noName);
   }
   else if (content.length < validationRules.nameLengthMin) {
     setIsContentValid(false);
-    setContentError(validationErrors.nameErrors.shortName[lang]);
+    setContentError(validationErrors.nameErrors.shortName);
   }
   else if (content.length > validationRules.nameLengthMax) {
     setIsContentValid(false);
-    setContentError(validationErrors.nameErrors.longName[lang]);
+    setContentError(validationErrors.nameErrors.longName);
   }
   else setIsContentValid(true);
 }
 
-export function checkSurname(setIsContentValid, setContentError, lang, content) {
+export function checkSurname(setIsContentValid, setContentError, content) {
 
   if (content.length === 0) {
     setIsContentValid(false);
-    setContentError(validationErrors.surnameErrors.noSurname[lang]);
+    setContentError(validationErrors.surnameErrors.noSurname);
   }
   else if (content.length < validationRules.surnameLengthMin) {
     setIsContentValid(false);
-    setContentError(validationErrors.surnameErrors.shortSurname[lang]);
+    setContentError(validationErrors.surnameErrors.shortSurname);
   }
   else if (content.length > validationRules.surnameLengthMax) {
     setIsContentValid(false);
-    setContentError(validationErrors.surnameErrors.longSurname[lang]);
+    setContentError(validationErrors.surnameErrors.longSurname);
   }
   else setIsContentValid(true);
 }
 
-export function checkEmail(setIsContentValid, setContentError, lang, content) {
+export function checkEmail(setIsContentValid, setContentError, content) {
 
   if (content.length === 0) {
     setIsContentValid(false);
-    setContentError(validationErrors.emailErrors.noEmail[lang]);
+    setContentError(validationErrors.emailErrors.noEmail);
   }
   else if (!validationRules.emailRegExp.test(content)) {
     setIsContentValid(false);
-    setContentError(validationErrors.emailErrors.wrongEmail[lang]);
+    setContentError(validationErrors.emailErrors.wrongEmail);
   }
   else setIsContentValid(true);
 }
 
-export function checkPassword(setIsContentValid, setContentError, lang, content) {
+export function checkPassword(setIsContentValid, setContentError, content) {
   if (content.length === 0) {
     setIsContentValid(false);
-    setContentError(validationErrors.passwordErrors.noPassword[lang]);
+    setContentError(validationErrors.passwordErrors.noPassword);
   }
   else if (content.length < validationRules.passwordLengthMin) {
     setIsContentValid(false);
-    setContentError(validationErrors.passwordErrors.shortPassword[lang]);
+    setContentError(validationErrors.passwordErrors.shortPassword);
   }
   else if (content.length > validationRules.passwordLengthMax) {
     setIsContentValid(false);
-    setContentError(validationErrors.passwordErrors.longPassword[lang]);
+    setContentError(validationErrors.passwordErrors.longPassword);
   }
   else setIsContentValid(true);
 }
 
-export function checkPasswordCopy(setIsContentValid, setContentError, password, lang, content) {
+export function checkPasswordCopy(setIsContentValid, setContentError, password, content) {
   if (content.length === 0) {
     setIsContentValid(false);
-    setContentError(validationErrors.passwordErrors.noPasswordCopy[lang]);
+    setContentError(validationErrors.passwordErrors.noPasswordCopy);
   }
   else if (content !== password) {
     setIsContentValid(false);
-    setContentError(validationErrors.passwordErrors.noMatch[lang]);
+    setContentError(validationErrors.passwordErrors.noMatch);
   }
   else setIsContentValid(true);
 }
 
-export function checkRole(setIsContentValid, setContentError, lang, content) {
+export function checkRole(setIsContentValid, setContentError, content) {
   if (content === '') {
     setIsContentValid(false);
-    setContentError(validationErrors.roleError.noRole[lang]);
+    setContentError(validationErrors.roleError.noRole);
   }
   else setIsContentValid(true);
   }
-
-export function changeLanguage(language, setLanguage) {
-  let temp = language;
-  temp = (temp + 1) % languages.lang.length;
-  setLanguage(temp);
-  sessionStorage.setItem('lang', temp);
-}
