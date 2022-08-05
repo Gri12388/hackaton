@@ -1,0 +1,742 @@
+/*!************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./src/assets/styles/fonts.scss ***!
+  \************************************************************************************************************/
+/* inter-regular - latin_cyrillic */
+@font-face {
+  font-family: 'Inter400';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/assets/fonts/inter-v11-latin_cyrillic-regular.eot); /* IE9 Compat Modes */
+  src: local(''),
+       url(/assets/fonts/inter-v11-latin_cyrillic-regular.eot?#iefix) format('embedded-opentype'), /* IE6-IE8 */
+       url(/assets/fonts/inter-v11-latin_cyrillic-regular.woff2) format('woff2'), /* Super Modern Browsers */
+       url(/assets/fonts/inter-v11-latin_cyrillic-regular.woff) format('woff'), /* Modern Browsers */
+       url(/assets/fonts/inter-v11-latin_cyrillic-regular.ttf) format('truetype'), /* Safari, Android, iOS */
+       url(/assets/images/inter-v11-latin_cyrillic-regular.svg#Inter) format('svg'); /* Legacy iOS */
+}
+
+/* inter-500 - latin_cyrillic */
+@font-face {
+  font-family: 'Inter500';
+  font-style: normal;
+  font-weight: 500;
+  src: url(/assets/fonts/inter-v11-latin_cyrillic-500.eot); /* IE9 Compat Modes */
+  src: local(''),
+       url(/assets/fonts/inter-v11-latin_cyrillic-500.eot?#iefix) format('embedded-opentype'), /* IE6-IE8 */
+       url(/assets/fonts/inter-v11-latin_cyrillic-500.woff2) format('woff2'), /* Super Modern Browsers */
+       url(/assets/fonts/inter-v11-latin_cyrillic-500.woff) format('woff'), /* Modern Browsers */
+       url(/assets/fonts/inter-v11-latin_cyrillic-500.ttf) format('truetype'), /* Safari, Android, iOS */
+       url(/assets/images/inter-v11-latin_cyrillic-500.svg#Inter) format('svg'); /* Legacy iOS */
+}
+
+/* inter-700 - latin_cyrillic */
+@font-face {
+  font-family: 'Inter700';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/assets/fonts/inter-v11-latin_cyrillic-700.eot); /* IE9 Compat Modes */
+  src: local(''),
+       url(/assets/fonts/inter-v11-latin_cyrillic-700.eot?#iefix) format('embedded-opentype'), /* IE6-IE8 */
+       url(/assets/fonts/inter-v11-latin_cyrillic-700.woff2) format('woff2'), /* Super Modern Browsers */
+       url(/assets/fonts/inter-v11-latin_cyrillic-700.woff) format('woff'), /* Modern Browsers */
+       url(/assets/fonts/inter-v11-latin_cyrillic-700.ttf) format('truetype'), /* Safari, Android, iOS */
+       url(/assets/images/inter-v11-latin_cyrillic-700.svg#Inter) format('svg'); /* Legacy iOS */
+}
+
+/* inter-800 - latin_cyrillic */
+@font-face {
+  font-family: 'Inter800';
+  font-style: normal;
+  font-weight: 800;
+  src: url(/assets/fonts/inter-v11-latin_cyrillic-800.eot); /* IE9 Compat Modes */
+  src: local(''),
+       url(/assets/fonts/inter-v11-latin_cyrillic-800.eot?#iefix) format('embedded-opentype'), /* IE6-IE8 */
+       url(/assets/fonts/inter-v11-latin_cyrillic-800.woff2) format('woff2'), /* Super Modern Browsers */
+       url(/assets/fonts/inter-v11-latin_cyrillic-800.woff) format('woff'), /* Modern Browsers */
+       url(/assets/fonts/inter-v11-latin_cyrillic-800.ttf) format('truetype'), /* Safari, Android, iOS */
+       url(/assets/images/inter-v11-latin_cyrillic-800.svg#Inter) format('svg'); /* Legacy iOS */
+}
+/*!****************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./src/assets/styles/normalize.scss ***!
+  \****************************************************************************************************************/
+*,
+*::before,
+*::after {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  box-sizing: border-box;
+}
+
+/* Links */
+a, a:visited {
+
+  text-decoration: none;
+}
+
+a:hover {
+
+  text-decoration: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+/* Common */
+a, aside, nav, footer, header, section, main {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+ul {
+  list-style: none;
+}
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/resolve-url-loader/index.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./src/assets/styles/common.scss ***!
+  \***************************************************************************************************************************************************************************************************************************/
+.common__button2, .common__buttonInactiv {
+  width: fit-content;
+  min-width: 100px;
+  height: 48px;
+  padding: 0 10px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.common__container {
+  max-width: 1440px;
+  height: 800px;
+  margin: 0 auto;
+  background-color: yellow;
+}
+
+.common__button2 {
+  font-family: "Inter700", sans-serif;
+  font-size: 18px;
+  line-height: 36px;
+  letter-spacing: 0px;
+  color: white;
+  background-color: #7DB59A;
+}
+.common__button2:hover {
+  background-color: #5B9479;
+}
+.common__button2:active {
+  background-color: #4F896C;
+}
+
+.common__buttonInactiv {
+  font-family: "Inter700", sans-serif;
+  font-size: 18px;
+  line-height: 36px;
+  letter-spacing: 0px;
+  color: gray;
+  cursor: default;
+  background-color: #C2C2C2;
+}
+/*!****************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./src/assets/styles/animation.scss ***!
+  \****************************************************************************************************************/
+@keyframes animation__loadingAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animation__loadingAnimation {
+  animation-name: animation__loadingAnimation;
+}
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/resolve-url-loader/index.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./src/components/Modal/modal.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+.modal__background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  visibility: visible;
+  opacity: 1;
+  background-color: rgba(128, 128, 128, 0.7);
+}
+
+.modal__foreground {
+  position: relative;
+  width: fit-content;
+  max-width: 498px;
+  height: fit-content;
+  margin: 0 20px;
+  padding: 25px;
+  border-radius: 16px;
+  background-color: white;
+}
+
+.modal__loadingPic {
+  width: 50px;
+  height: 50px;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+}
+
+.modal__messageText {
+  font-family: "Inter400", sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  color: black;
+  cursor: default;
+  margin-bottom: 20px;
+}
+
+.modal__button {
+  display: block;
+  margin: 0 auto;
+}
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/resolve-url-loader/index.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./src/components/App/app.scss ***!
+  \*************************************************************************************************************************************************************************************************************************/
+.app__body {
+  height: 100vh;
+  overflow-y: hidden;
+  padding-right: 15px;
+}
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/resolve-url-loader/index.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./src/components/Base/base.scss ***!
+  \***************************************************************************************************************************************************************************************************************************/
+.base__container {
+  display: flex;
+}
+
+.base__aside {
+  width: 300px;
+  height: 100%;
+  padding: 100px 5px 0px 5px;
+  background-color: blue;
+}
+
+.base__logoWrapper {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background-color: red;
+}
+
+.base__main {
+  width: 100%;
+  height: 100%;
+  background-color: pink;
+}
+
+.base__header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  background-color: azure;
+}
+
+.base__burgerWrapper {
+  display: none;
+}
+
+.base__lines {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: blue;
+  transition: 0.5s;
+}
+
+.base__line1 {
+  top: 0;
+}
+.base__line1Cross {
+  width: 141.4213562373%;
+  transform-origin: left center;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.base__line2 {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.base__line2Cross {
+  display: none;
+}
+
+.base__line3 {
+  bottom: 0;
+}
+.base__line3Cross {
+  width: 141.4213562373%;
+  transform-origin: left center;
+  transform: rotate(-45deg) translate(-1px, 1px);
+}
+
+.base__lang {
+  font-family: "Inter400", sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  color: black;
+  cursor: default;
+  width: 25px;
+  margin-left: auto;
+  height: fit-content;
+  background-color: pink;
+}
+
+.base__avatar {
+  width: 60px;
+  height: 60px;
+  margin-left: 20px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.base__role {
+  font-family: "Inter400", sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  color: black;
+  cursor: default;
+  width: fit-content;
+  min-width: 30px;
+  max-width: 100px;
+  margin-left: 20px;
+  height: fit-content;
+  background-color: pink;
+}
+
+.base__fullName {
+  font-family: "Inter400", sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  color: black;
+  cursor: default;
+  width: fit-content;
+  min-width: 30px;
+  max-width: 100px;
+  margin-left: 20px;
+  height: fit-content;
+  background-color: pink;
+}
+
+.base__quitWrapper {
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+  background-color: red;
+}
+
+.base__desktop {
+  position: relative;
+  height: 100%;
+  background-color: yellowgreen;
+}
+
+.base__modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  background-color: gray;
+  opacity: 70%;
+}
+
+@media (max-width: 849px) {
+  .base__aside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 90vh;
+    margin-top: 80px;
+    padding-top: 20px;
+    transform: translateX(-100%);
+    transition: 0.5s;
+  }
+  .base__asideCross {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 300px;
+    height: 90vh;
+    margin-top: 80px;
+    padding: 20px 5px 0px 5px;
+    background-color: blue;
+    transform: translateX(0%);
+    transition: 0.5s;
+  }
+  .base__burgerWrapper {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+  }
+}
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/resolve-url-loader/index.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./src/components/InputText/inputText.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+::placeholder {
+  font-family: "Inter400", sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  color: gray;
+  cursor: default;
+}
+
+.inputText__errorWrapper, .inputText__labelWrapper {
+  height: 20px;
+  padding: 0 12px 0 12px;
+}
+
+.inputText__labelWrapper {
+  margin-bottom: 5px;
+}
+
+.inputText__label {
+  font-family: "Inter800", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 2px;
+  color: gray;
+  cursor: default;
+}
+
+.inputText__inputWrapper, .inputText__inputWrapperFocused, .inputText__inputWrapperBad, .inputText__inputWrapperGood {
+  position: relative;
+  display: flex;
+  height: 40px;
+  margin-bottom: 5px;
+  padding: 0 12px 0 12px;
+  border: solid 2px black;
+  border-radius: 20px;
+}
+
+.inputText__inputWrapperGood {
+  border-color: #7DB59A;
+}
+
+.inputText__inputWrapperBad {
+  border-color: red;
+}
+
+.inputText__inputWrapperFocused {
+  border-color: blue;
+}
+
+.inputText__input {
+  font-family: "Inter400", sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  color: black;
+  cursor: default;
+  width: 100%;
+  min-width: 300px;
+  height: 100%;
+  outline: none;
+  background-color: transparent;
+}
+
+.inputText__error {
+  font-family: "Inter400", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0px;
+  color: red;
+  cursor: default;
+}
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/resolve-url-loader/index.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./src/components/LoginForm/loginForm.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+.loginForm__button, .loginForm__buttonInactiv {
+  width: fit-content;
+  min-width: 100px;
+  height: 48px;
+  padding: 0 10px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.loginForm__container {
+  height: fit-content;
+}
+
+.loginForm__buttonWrapper {
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+}
+
+.loginForm__button {
+  font-family: "Inter700", sans-serif;
+  font-size: 18px;
+  line-height: 36px;
+  letter-spacing: 0px;
+  color: white;
+  background-color: #7DB59A;
+}
+.loginForm__button:hover {
+  background-color: #5B9479;
+}
+.loginForm__button:active {
+  background-color: #4F896C;
+}
+
+.loginForm__buttonInactiv {
+  font-family: "Inter700", sans-serif;
+  font-size: 18px;
+  line-height: 36px;
+  letter-spacing: 0px;
+  color: gray;
+  cursor: default;
+  background-color: #C2C2C2;
+}
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/resolve-url-loader/index.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./src/components/DropDown/dropDown.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+.dropDown__selectWrapper, .dropDown__selectWrapperFocused, .dropDown__selectWrapperBad, .dropDown__selectWrapperGood {
+  position: relative;
+  display: flex;
+  height: 40px;
+  margin-bottom: 5px;
+  padding: 0 12px 0 12px;
+  border: solid 2px black;
+  border-radius: 20px;
+}
+
+.dropDown__select {
+  font-family: "Inter400", sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  color: black;
+  cursor: default;
+  width: 100%;
+  min-width: 300px;
+  height: 100%;
+  outline: none;
+  background-color: transparent;
+}
+
+.dropDown__errorWrapper, .dropDown__labelWrapper {
+  height: 20px;
+  padding: 0 12px 0 12px;
+}
+
+.dropDown__labelWrapper {
+  margin-bottom: 5px;
+}
+
+.dropDown__selectWrapper, .dropDown__selectWrapperFocused, .dropDown__selectWrapperBad, .dropDown__selectWrapperGood {
+  position: relative;
+  display: flex;
+  height: 40px;
+  margin-bottom: 5px;
+  padding: 0 12px 0 12px;
+  border: solid 2px black;
+  border-radius: 20px;
+}
+
+.dropDown__selectWrapperGood {
+  border-color: #7DB59A;
+}
+
+.dropDown__selectWrapperBad {
+  border-color: red;
+}
+
+.dropDown__selectWrapperFocused {
+  border-color: blue;
+}
+
+.dropDown__label {
+  font-family: "Inter800", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 2px;
+  color: gray;
+  cursor: default;
+}
+
+.dropDown__placeholder {
+  font-family: "Inter400", sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  color: gray;
+  cursor: default;
+}
+
+.dropDown__error {
+  font-family: "Inter400", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0px;
+  color: red;
+  cursor: default;
+}
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/resolve-url-loader/index.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./src/components/RegForm/regForm.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+.regForm__button, .regForm__buttonInactiv {
+  width: fit-content;
+  min-width: 100px;
+  height: 48px;
+  padding: 0 10px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.regForm__container {
+  height: fit-content;
+}
+
+.regForm__buttonWrapper {
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+}
+
+.regForm__button {
+  font-family: "Inter700", sans-serif;
+  font-size: 18px;
+  line-height: 36px;
+  letter-spacing: 0px;
+  color: white;
+  background-color: #7DB59A;
+}
+.regForm__button:hover {
+  background-color: #5B9479;
+}
+.regForm__button:active {
+  background-color: #4F896C;
+}
+
+.regForm__buttonInactiv {
+  font-family: "Inter700", sans-serif;
+  font-size: 18px;
+  line-height: 36px;
+  letter-spacing: 0px;
+  color: gray;
+  cursor: default;
+  background-color: #C2C2C2;
+}
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/resolve-url-loader/index.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./src/components/Start/start.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+.start__button {
+  width: fit-content;
+  min-width: 100px;
+  height: 48px;
+  padding: 0 10px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.start__main {
+  display: flex;
+  width: 100%;
+  height: 90%;
+  background-color: aqua;
+}
+
+.start__footer {
+  width: 100%;
+  height: 10%;
+  background-color: blue;
+}
+
+.start__left {
+  width: 60%;
+  height: 100%;
+  background-color: white;
+}
+
+.start__right {
+  width: 40%;
+  height: 100%;
+  padding: 20px 0 0 0;
+  background-color: pink;
+}
+
+.start__mainLogo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 260px auto;
+  background-color: red;
+}
+
+.start__loginFormSection {
+  width: 90%;
+  height: fit-content;
+  margin: 0 auto 20px auto;
+  background-color: yellow;
+}
+
+.start__link {
+  font-family: "Inter400", sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+@media (max-width: 849px) {
+  .start__left {
+    display: none;
+  }
+  .start__right {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+.start__button {
+  font-family: "Inter700", sans-serif;
+  font-size: 18px;
+  line-height: 36px;
+  letter-spacing: 0px;
+  color: white;
+  background-color: #7DB59A;
+  margin-left: 10px;
+}
+.start__button:hover {
+  background-color: #5B9479;
+}
+.start__button:active {
+  background-color: #4F896C;
+}
