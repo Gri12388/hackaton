@@ -101,7 +101,7 @@ function RegForm() {
           mode: 'no-cors',
           referrerPolicy: "unsafe-url",
         },
-        body: createBody,
+        body: createBody(),
       });
       const result = await response.json();
       console.log(result);
