@@ -58,6 +58,8 @@ function RegForm() {
   const [isAgeValid, setIsAgeValid] = useState(false);
   const [ageError, setAgeError] = useState(validationErrors.ageErrors.noAge);
 
+  const [role, setRole] = useState('student');
+
   const [isAllValid, setIsAllValid] = useState(false);
 
   const [focusedElement, setFocusedElement] = useState(0);
@@ -87,9 +89,18 @@ function RegForm() {
       firstName: name,
       lastName: surname,
       password: password,
-      role: 'student',
+      role: role,
       email: email,
+      city: city,
+      hobby: hobby,
+      age: age,
     });
+  }
+
+  
+
+  function onRadioClick(e) {
+    setRole(e.target.value);
   }
 
   async function onSubmitHandler(e) {
@@ -116,6 +127,7 @@ function RegForm() {
 
   }
 
+  console.log(role)
 
   return (
     <div className={ s.background }>
@@ -203,9 +215,11 @@ function RegForm() {
             />
           </div>
           <div>
-            <InputText 
+            <DropDown 
               id='regForm__hobby__id'
-              placeholder='Укажите интересы(frongend, backend...)' 
+              placeholder='Укажите Ваши интересы' 
+              content={ hobby }
+              options={ ['Frontend', 'Backend'] }
               setContent={ setHobby }
               isContentValid={ isHobbyValid }
               checkContent={ checkHobby.bind(null, setIsHobbyValid, setHobbyError) }
@@ -229,6 +243,34 @@ function RegForm() {
           </div>
         </div>
         
+        <div className={ s.radio }>
+          <div>
+            <input 
+              onChange={ onRadioClick }
+              type='radio' 
+              id='RegForm__student__id' 
+              name='RegForm__radio__name' 
+              value='student' 
+              checked={ role === 'student'} 
+            />
+            <label className={ s.label } htmlFor='RegForm__student__id'>Студент</label>
+          </div>
+          
+          <div>
+            <input 
+              className={ s.radioGap }
+              onChange={ onRadioClick }
+              type='radio' 
+              id='RegForm__ticher__id' 
+              name='RegForm__radio__name' 
+              value={ 'ticher' }  
+              checked={ role === 'ticher' }
+            />
+            <label className={ s.label } htmlFor='RegForm__student__id'>Преподаватель</label>
+          </div>
+        
+        </div>
+
 
         <div className={ s.buttonWrapper }>
           <button 

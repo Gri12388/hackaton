@@ -23,11 +23,11 @@
 }
 
 .left {
-  height: 414px;
+  height: fit-content;
 }
 
 .right {
-  height: 414px;
+  height: fit-content;
   margin-left: 20px
 }
 
@@ -58,4 +58,17 @@
 
 .gap {
   margin-bottom: 20px;
+}
+
+.radio {
+  display: flex;
+  gap: 20px;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto 20px auto;
+}
+
+.label {
+  @include m.text4;
+  margin-left: 5px;
 }
