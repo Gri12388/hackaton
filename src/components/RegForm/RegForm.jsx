@@ -130,10 +130,8 @@ function RegForm() {
       <p className={ s.messageError }>{ messageError }</p>
       <form onSubmit={ preventDefault }>
         
-        <div className={ s.subcontainer }>
-          <div className={ s.left }>
-          
-          <div>
+      <div className={ s.subcontainer }>
+        <div className={ s.left }>
             <InputText 
               id='regForm__name__id'
               placeholder='Введите имя' 
@@ -143,49 +141,9 @@ function RegForm() {
               contentError={ nameError }
               autofocus={ true }
             />
-          </div>
-          <div>
-            <InputText 
-              id='regForm__email__id'
-              placeholder='Введите e-mail' 
-              setContent={ setEmail }
-              isContentValid={ isEmailValid }
-              checkContent={ checkEmail.bind(null, setIsEmailValid, setEmailError) }
-              contentError={ emailError }
-              autofocus={ false }
-            />
-          </div>
-          <div>
-            <InputText 
-              id='regForm__age__id'
-              type='date'
-              placeholder='Укажите дату рождения' 
-              setContent={ setAge }
-              isContentValid={ isAgeValid }
-              checkContent={ checkAge.bind(null, setIsAgeValid, setAgeError) }
-              contentError={ ageError }
-              autofocus={ false }
-            />
-          </div>
-          <div>
-            <InputText 
-              id='regForm__password__id'
-              type='password'
-              placeholder='Придумайте пароль'
-              setContent={ setPassword }
-              isContentValid={ isPasswordValid }
-              checkContent={ checkPassword.bind(null, setIsPasswordValid, setPasswordError) }
-              contentError={ passwordError }
-              autofocus={ false }
-            />
-          </div>
-
-          </div>
-
-
-          <div className={ s.right }>
-          
-          <div>
+        </div>
+        
+        <div className={ s.right }>
             <InputText 
               id='regForm__surname__id'
               placeholder='Введите фамилию'
@@ -195,46 +153,125 @@ function RegForm() {
               contentError={ surnameError }
               autofocus={ false }
             />
-          </div>
-          <div>
-            <InputText 
-              id='regForm__city__id'
-              placeholder='Укажите город' 
-              setContent={ setCity }
-              isContentValid={ isCityValid }
-              checkContent={ checkCity.bind(null, setIsCityValid, setCityError) }
-              contentError={ cityError }
-              autofocus={ false }
-            />
-          </div>
-          <div>
-            <DropDown 
-              id='regForm__hobby__id'
-              placeholder='Укажите Ваши интересы' 
-              content={ hobby }
-              options={ ['Frontend', 'Backend'] }
-              setContent={ setHobby }
-              isContentValid={ isHobbyValid }
-              checkContent={ checkHobby.bind(null, setIsHobbyValid, setHobbyError) }
-              contentError={ hobbyError }
-              autofocus={ false }
-            />
-          </div>
-          <div>
-            <InputText 
-              id='regForm__passwordCopy__id'
-              type='password'
-              placeholder='Повторите пароль'
-              setContent={ setPasswordCopy }
-              isContentValid={ isPasswordCopyValid }
-              checkContent={ checkPasswordCopy.bind(null, setIsPasswordCopyValid, setPasswordCopyError, password) }
-              contentError={ passwordCopyError }
-              autofocus={ false }
-            />
-          </div>
-
-          </div>
         </div>
+      </div>
+
+      <div className={ s.subcontainer }>
+        <div className={ s.left }>
+          <InputText 
+            id='regForm__email__id'
+            placeholder='Введите e-mail' 
+            setContent={ setEmail }
+            isContentValid={ isEmailValid }
+            checkContent={ checkEmail.bind(null, setIsEmailValid, setEmailError) }
+            contentError={ emailError }
+            autofocus={ false }
+          />
+        </div>
+        
+        <div className={ s.right }>
+          <InputText 
+            id='regForm__city__id'
+            placeholder='Укажите город' 
+            setContent={ setCity }
+            isContentValid={ isCityValid }
+            checkContent={ checkCity.bind(null, setIsCityValid, setCityError) }
+            contentError={ cityError }
+            autofocus={ false }
+          />
+        </div>
+      </div>
+
+      <div className={ s.subcontainer }>
+        <div className={ s.left }>
+          <InputText 
+            id='regForm__age__id'
+            type='date'
+            placeholder='Укажите дату рождения' 
+            setContent={ setAge }
+            isContentValid={ isAgeValid }
+            checkContent={ checkAge.bind(null, setIsAgeValid, setAgeError) }
+            contentError={ ageError }
+            autofocus={ false }
+          />
+        </div>
+        
+        <div className={ s.right }>
+          <DropDown 
+            id='regForm__hobby__id'
+            placeholder='Укажите Ваши интересы' 
+            content={ hobby }
+            options={ ['Frontend', 'Backend'] }
+            setContent={ setHobby }
+            isContentValid={ isHobbyValid }
+            checkContent={ checkHobby.bind(null, setIsHobbyValid, setHobbyError) }
+            contentError={ hobbyError }
+            autofocus={ false }
+          />
+        </div>
+      </div>
+
+      <div className={ s.subcontainer }>
+        <div className={ s.left }>
+          <InputText 
+            id='regForm__password__id'
+            type='password'
+            placeholder='Придумайте пароль'
+            setContent={ setPassword }
+            isContentValid={ isPasswordValid }
+            checkContent={ checkPassword.bind(null, setIsPasswordValid, setPasswordError) }
+            contentError={ passwordError }
+            autofocus={ false }
+          />
+        </div>
+        
+        <div className={ s.right }>
+          <InputText 
+            id='regForm__passwordCopy__id'
+            type='password'
+            placeholder='Повторите пароль'
+            setContent={ setPasswordCopy }
+            isContentValid={ isPasswordCopyValid }
+            checkContent={ checkPasswordCopy.bind(null, setIsPasswordCopyValid, setPasswordCopyError, password) }
+            contentError={ passwordCopyError }
+            autofocus={ false }
+          />
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
         <div className={ s.radio }>
           <div>

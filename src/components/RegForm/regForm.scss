@@ -11,6 +11,7 @@
 .container {
   height: fit-content;
   width: fit-content;
+  max-width: 740px;
   margin: 0 auto;
   padding: 30px 56px 20px 56px;
   background-color: v.$white;
@@ -20,15 +21,19 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+
 }
 
 .left {
   height: fit-content;
+  width: 270px;
+  margin: 0 10px;
 }
 
 .right {
   height: fit-content;
-  margin-left: 20px
+  width: 270px;
+  margin: 0 10px;
 }
 
 .auth {
@@ -71,4 +76,11 @@
 .label {
   @include m.text4;
   margin-left: 5px;
+}
+
+
+@media (max-width: 769px) {
+  .container {
+    padding: 0;
+  }
 }
