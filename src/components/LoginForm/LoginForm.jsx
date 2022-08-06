@@ -99,6 +99,7 @@ function LoginForm() {
         <div className={ s.gap }>
           <InputText 
             id='loginForm__password__id'
+            type='password'
             placeholder={ 'Введите пароль' }
             setContent={ setPassword }
             isContentValid={ isPasswordValid }

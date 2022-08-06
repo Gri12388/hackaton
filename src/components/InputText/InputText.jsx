@@ -19,7 +19,7 @@ function InputText({
 }) {
 
   const inputType = useMemo(() => {
-    if (['email', 'password'].includes(type)) return type;
+    if (['email', 'password', 'date'].includes(type)) return type;
     else return 'text';
   }, []);
 

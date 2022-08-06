@@ -65,6 +65,7 @@ export const validationRules = {
   surnameLengthMin: 1,
   surnameLengthMax: 20,
   emailRegExp: /^\w[-._\w]*\w@\w[-._\w]*\w\.\w{2,3}$/,
+  dateRegExp: /^dd\.dd\.dddd$/,
   passwordLengthMin: 8,
   passwordLengthMax: 20,
   titleLengthMax: 30,
@@ -172,7 +173,7 @@ export function checkRole(setIsContentValid, setContentError, content) {
 export function checkCity(setIsContentValid, setContentError, content) {
   if (content === '') {
     setIsContentValid(false);
-    setContentError(validationErrors.cityError.noCity);
+    setContentError(validationErrors.cityErrors.noCity);
   }
   else setIsContentValid(true);
   }
@@ -180,7 +181,7 @@ export function checkCity(setIsContentValid, setContentError, content) {
 export function checkHobby(setIsContentValid, setContentError, content) {
   if (content === '') {
     setIsContentValid(false);
-    setContentError(validationErrors.cityError.noCity);
+    setContentError(validationErrors.cityErrors.noCity);
   }
   else setIsContentValid(true);
   }
@@ -188,11 +189,11 @@ export function checkHobby(setIsContentValid, setContentError, content) {
 export function checkAge(setIsContentValid, setContentError, content) {
   if (content === '') {
     setIsContentValid(false);
-    setContentError(validationErrors.ageError.noAge);
+    setContentError(validationErrors.ageErrors.noAge);
   }
-  else if (content < validationRules.ageMin) {
-    setIsContentValid(false);
-    setContentError(validationErrors.ageError.tooYoung);
-  }
+  else if (validationRules.dateRegExp.test(content)) {
+      setIsContentValid(false);
+      setContentError(validationErrors.ageErrors.tooYoung);
+    }
   else setIsContentValid(true);
   }

@@ -58,7 +58,7 @@ function RegForm() {
   const [isAgeValid, setIsAgeValid] = useState(false);
   const [ageError, setAgeError] = useState(validationErrors.ageErrors.noAge);
 
-  const [role, setRole] = useState('student');
+  const [role, setRole] = useState('STUDENT');
 
   const [isAllValid, setIsAllValid] = useState(false);
 
@@ -72,20 +72,13 @@ function RegForm() {
     setIsAllValid(checkIfAllValid(validationArray));
   }, validationArray);
 
-  function onKeyDownHandler(e) {
-    if (e.code === 'Enter' || e.key === 'Enter') {
-      e.preventDefault();
-      setFocusedElement(state => (state + 1) % 6);
-    }
-  }
-
   function preventDefault(e) {
     e.preventDefault();
     //if(isAllValid) onSubmitHandler();
   }
 
   function createBody() {
-    return JSON.stringify({
+    let json = JSON.stringify({
       firstName: name,
       lastName: surname,
       password: password,
@@ -93,8 +86,10 @@ function RegForm() {
       email: email,
       city: city,
       hobby: hobby,
-      age: age,
+      age: Date.parse(age),
     });
+    console.log(json);
+    return json;
   }
 
   
@@ -116,6 +111,7 @@ function RegForm() {
         body: createBody()
       });
       console.log(response);
+
       if (response.status === 200) navigate('/auth');
       else setMessageError('Извините, но зарегистрироваться не удалось. Попробуйте еще раз');
       const result = await response.text();
@@ -126,8 +122,6 @@ function RegForm() {
     }
 
   }
-
-  console.log(role)
 
   return (
     <div className={ s.background }>
@@ -147,7 +141,6 @@ function RegForm() {
               isContentValid={ isNameValid }
               checkContent={ checkName.bind(null, setIsNameValid, setNameError) }
               contentError={ nameError }
-              onKeyDownHandler={ onKeyDownHandler }
               autofocus={ true }
             />
           </div>
@@ -159,14 +152,14 @@ function RegForm() {
               isContentValid={ isEmailValid }
               checkContent={ checkEmail.bind(null, setIsEmailValid, setEmailError) }
               contentError={ emailError }
-              onKeyDownHandler={ onKeyDownHandler }
               autofocus={ false }
             />
           </div>
           <div>
             <InputText 
               id='regForm__age__id'
-              placeholder='Укажите возраст' 
+              type='date'
+              placeholder='Укажите дату рождения' 
               setContent={ setAge }
               isContentValid={ isAgeValid }
               checkContent={ checkAge.bind(null, setIsAgeValid, setAgeError) }
@@ -250,8 +243,8 @@ function RegForm() {
               type='radio' 
               id='RegForm__student__id' 
               name='RegForm__radio__name' 
-              value='student' 
-              checked={ role === 'student'} 
+              value='STUDENT' 
+              checked={ role === 'STUDENT'} 
             />
             <label className={ s.label } htmlFor='RegForm__student__id'>Студент</label>
           </div>
@@ -263,8 +256,8 @@ function RegForm() {
               type='radio' 
               id='RegForm__ticher__id' 
               name='RegForm__radio__name' 
-              value={ 'ticher' }  
-              checked={ role === 'ticher' }
+              value={ 'TICHER' }  
+              checked={ role === 'TICHER' }
             />
             <label className={ s.label } htmlFor='RegForm__student__id'>Преподаватель</label>
           </div>
