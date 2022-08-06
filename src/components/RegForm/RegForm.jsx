@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 import { AppContext } from '../App/App.jsx';
 import InputText from '../InputText/InputText.jsx';
@@ -23,6 +24,7 @@ import s from './regForm.scss';
 function RegForm() {
 
   const context = useContext(AppContext); 
+  const navigate = useNavigate();
 
   const [name, setName] = useState('');
   const [isNameValid, setIsNameValid] = useState(false);
@@ -50,6 +52,8 @@ function RegForm() {
 
   const validationArray = [isNameValid, isSurnameValid, isEmailValid, isPasswordValid, isPasswordCopyValid];
 
+  const [messageError, setMessageError] = useState('');
+
   useEffect(() => {
     setIsAllValid(checkIfAllValid(validationArray));
   }, validationArray);
@@ -66,6 +70,16 @@ function RegForm() {
     //if(isAllValid) onSubmitHandler();
   }
 
+  function createBody() {
+    return JSON.stringify({
+      firstName: name,
+      lastName: surname,
+      password: password,
+      role: 'student',
+      email: email,
+    });
+  }
+
   async function onSubmitHandler(e) {
     e.preventDefault();
     try {
@@ -76,19 +90,15 @@ function RegForm() {
           mode: 'no-cors',
           referrerPolicy: "unsafe-url",
         },
-        body: JSON.stringify({
-          "firstName": "Lester",
-          "lastName": "Freemon",
-          "password": "password1234",
-          "role": "STUDENT",
-          "email": "LesterFreemon@yandex.ru"
-        })
+        body: createBody()
       });
+      console.log(response);
+      if (response.status === 200) navigate('/auth');
       const result = await response.text();
       console.log(result);
     }
     catch (err) {
-      console.log(err);
+      console.error(err);
     }
 
   }
@@ -97,7 +107,8 @@ function RegForm() {
   return (
     <div className={ s.background }>
       <div className={ s.container }>
-      <p className={ s.auth }>Авторизация</p>
+      <p className={ s.auth }>Регистрация</p>
+      <p className={ s.messageError }>{ messageError }</p>
       <form onSubmit={ preventDefault }>
       <div>
         <InputText 
@@ -173,8 +184,8 @@ function RegForm() {
 
       <div className={ s.buttonWrapper }>
         <button 
-          //className={ isAllValid ? s.button : s.buttonInactiv }
-          className={ s.button }
+          className={ isAllValid ? s.button : s.buttonInactiv }
+          //className={ s.button }
           onClick={ onSubmitHandler }
         >Зарегистрироваться</button>
       </div>

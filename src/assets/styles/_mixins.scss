@@ -112,3 +112,18 @@
     border-color: v.$greenDarkest;
   }
 }
+
+@mixin button4 {
+  @extend %button;
+  @include text4;
+  border: solid 1px v.$gray;
+  background-color: v.$gray;
+  &:hover {
+    background-color: v.$white;
+    border-color: v.$black;
+  };
+  &:active {
+    background-color: v.$white;
+    border-color: v.$black;
+  }
+}

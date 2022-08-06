@@ -38,3 +38,9 @@
 .gap {
   margin-bottom: 20px;
 }
+
+.messageError {
+  @include m.text5;
+  text-align: center;
+}
+

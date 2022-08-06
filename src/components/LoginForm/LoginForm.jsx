@@ -30,6 +30,8 @@ function LoginForm() {
 
   const [focusedElement, setFocusedElement] = useState(0);
 
+  const [messageError, setMessageError] = useState('');
+
   useEffect(() => {
     setIsAllValid(checkIfAllValid([isEmailValid, isPasswordValid]));
   }, [isEmailValid, isPasswordValid]);
@@ -57,6 +59,7 @@ function LoginForm() {
     <div className={ s.background }>
       <div className={ s.container }>
       <p className={ s.auth }>Авторизация</p>
+      <p className={ s.messageError }>{ messageError }</p>
       <form onSubmit={ preventDefault }>
         <div>
           <InputText 

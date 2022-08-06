@@ -44,7 +44,11 @@
   width: fit-content;
   height: fit-content;
   margin-left: 20px;
-
+  transition: v.$t05s;
+  &:hover {
+    color: v.$blue;
+    
+  }
 }
 
 .bell {
@@ -55,14 +59,14 @@
 }
 
 .log {
-  @include m.buttonInactiv;
+  @include m.button4;
   width: fit-content;
   height: 30px;
   margin-left: 20px;
 }
 
 .reg {
-  @include m.buttonInactiv;
+  @include m.button4;
   width: fit-content;
   height: 30px;
   margin-left: 20px;
