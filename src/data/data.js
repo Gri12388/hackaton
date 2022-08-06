@@ -36,6 +36,18 @@ export const validationErrors = {
     noTitle: 'Укажите название',
     longTitle: 'Название слишком длинное',
   },
+  cityErrors: {
+    noCity: 'Укажите название города',
+    longTitle: 'Название слишком длинное',
+  },
+  hobbyErrors: {
+    noHobby: 'Укажите Ваши увлечения',
+    longTitle: 'Название слишком длинное',
+  },
+  ageErrors: {
+    noAge: 'Укажите Ваш возраст',
+    tooYoung: 'Вы слишком юны',
+  },
   descriptionError: {
     noDescription: 'Введите описание',
   },
@@ -53,9 +65,10 @@ export const validationRules = {
   surnameLengthMin: 1,
   surnameLengthMax: 20,
   emailRegExp: /^\w[-._\w]*\w@\w[-._\w]*\w\.\w{2,3}$/,
-  passwordLengthMin: 6,
+  passwordLengthMin: 8,
   passwordLengthMax: 20,
   titleLengthMax: 30,
+  ageMin: 10
 }
 
 export const roles = {
@@ -152,6 +165,34 @@ export function checkRole(setIsContentValid, setContentError, content) {
   if (content === '') {
     setIsContentValid(false);
     setContentError(validationErrors.roleError.noRole);
+  }
+  else setIsContentValid(true);
+  }
+
+export function checkCity(setIsContentValid, setContentError, content) {
+  if (content === '') {
+    setIsContentValid(false);
+    setContentError(validationErrors.cityError.noCity);
+  }
+  else setIsContentValid(true);
+  }
+
+export function checkHobby(setIsContentValid, setContentError, content) {
+  if (content === '') {
+    setIsContentValid(false);
+    setContentError(validationErrors.cityError.noCity);
+  }
+  else setIsContentValid(true);
+  }
+
+export function checkAge(setIsContentValid, setContentError, content) {
+  if (content === '') {
+    setIsContentValid(false);
+    setContentError(validationErrors.ageError.noAge);
+  }
+  else if (content < validationRules.ageMin) {
+    setIsContentValid(false);
+    setContentError(validationErrors.ageError.tooYoung);
   }
   else setIsContentValid(true);
   }

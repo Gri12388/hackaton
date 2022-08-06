@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './components/App/App.jsx';
 import LoginForm from './components/LoginForm/LoginForm.jsx';
 import RegForm from './components/RegForm/RegForm.jsx';
+import Courses from './components/Courses/Courses.jsx';
 
 const root = createRoot(document.getElementById('root'));
 
@@ -14,6 +15,7 @@ root.render(
       <Route path='/' element={ <App /> }>
         <Route path='auth' element={ <LoginForm /> } />
         <Route path='reg' element={ <RegForm /> } />
+        <Route path='courses' element={ <Courses /> } />
       </Route>
     </Routes>
   </BrowserRouter>

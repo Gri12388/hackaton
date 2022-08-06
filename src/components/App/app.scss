@@ -1,6 +1,12 @@
 @use '../../assets/styles/variables.scss' as v;
 @use '../../assets/styles/mixins.scss' as m;
 
+%svg {
+  width: 40px;
+  height: 40px;
+  fill: v.$transparent;
+  transition: v.$t05s;
+}
 
 .container {
   max-width: 1440px;
@@ -19,7 +25,8 @@
 }
 
 .main {
-  height: 80%;
+  height: fit-content;
+  min-height: 80%;
   background-color: v.$background;
 }
 
@@ -52,10 +59,15 @@
 }
 
 .bell {
-  width: 21px;
-  height: 21px;
+  width: 40px;
+  height: 40px;
   margin-left: auto;
-  background-color: red;
+}
+
+.bellOffSvg {
+  @extend %svg;
+  margin-right: 20px;
+  stroke: v.$black;
 }
 
 .log {
@@ -94,3 +106,6 @@
 .gap {
   margin-left: auto;
 }
+
+
+

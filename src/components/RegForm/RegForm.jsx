@@ -1,10 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { AppContext } from '../App/App.jsx';
 import InputText from '../InputText/InputText.jsx';
+import DropDown from '../DropDown/DropDown.jsx';
 
 import {
+  checkAge,
+  checkCity,
+  checkHobby,
   checkEmail,
   checkIfAllValid,
   checkName,
@@ -14,10 +18,6 @@ import {
   validationErrors,
 } from '../../data/data.js';
 
-import {
-  hosts,
-  methods,
-} from '../../data/data.js';
 
 import s from './regForm.scss';
 
@@ -45,6 +45,18 @@ function RegForm() {
   const [passwordCopy, setPasswordCopy] = useState('');
   const [isPasswordCopyValid, setIsPasswordCopyValid] = useState(false);
   const [passwordCopyError, setPasswordCopyError] = useState(validationErrors.passwordErrors.noPassword);
+
+  const [city, setCity] = useState('');
+  const [isCityValid, setIsCityValid] = useState(false);
+  const [cityError, setCityError] = useState(validationErrors.cityErrors.noCity);
+
+  const [hobby, setHobby] = useState('');
+  const [isHobbyValid, setIsHobbyValid] = useState(false);
+  const [hobbyError, setHobbyError] = useState(validationErrors.hobbyErrors.noHobby);
+
+  const [age, setAge] = useState('');
+  const [isAgeValid, setIsAgeValid] = useState(false);
+  const [ageError, setAgeError] = useState(validationErrors.ageErrors.noAge);
 
   const [isAllValid, setIsAllValid] = useState(false);
 
@@ -94,6 +106,7 @@ function RegForm() {
       });
       console.log(response);
       if (response.status === 200) navigate('/auth');
+      else setMessageError('Извините, но зарегистрироваться не удалось. Попробуйте еще раз');
       const result = await response.text();
       console.log(result);
     }
@@ -110,85 +123,120 @@ function RegForm() {
       <p className={ s.auth }>Регистрация</p>
       <p className={ s.messageError }>{ messageError }</p>
       <form onSubmit={ preventDefault }>
-      <div>
-        <InputText 
-          id='regForm__name__id'
-          placeholder='Введите имя' 
-          setContent={ setName }
-          isContentValid={ isNameValid }
-          checkContent={ checkName.bind(null, setIsNameValid, setNameError) }
-          contentError={ nameError }
-          onKeyDownHandler={ onKeyDownHandler }
-          autofocus={ true }
-          focus={ focusedElement === 0 }
-        />
-      </div>
+        
+        <div className={ s.subcontainer }>
+          <div className={ s.left }>
+          
+          <div>
+            <InputText 
+              id='regForm__name__id'
+              placeholder='Введите имя' 
+              setContent={ setName }
+              isContentValid={ isNameValid }
+              checkContent={ checkName.bind(null, setIsNameValid, setNameError) }
+              contentError={ nameError }
+              onKeyDownHandler={ onKeyDownHandler }
+              autofocus={ true }
+            />
+          </div>
+          <div>
+            <InputText 
+              id='regForm__email__id'
+              placeholder='Введите e-mail' 
+              setContent={ setEmail }
+              isContentValid={ isEmailValid }
+              checkContent={ checkEmail.bind(null, setIsEmailValid, setEmailError) }
+              contentError={ emailError }
+              onKeyDownHandler={ onKeyDownHandler }
+              autofocus={ false }
+            />
+          </div>
+          <div>
+            <InputText 
+              id='regForm__age__id'
+              placeholder='Укажите возраст' 
+              setContent={ setAge }
+              isContentValid={ isAgeValid }
+              checkContent={ checkAge.bind(null, setIsAgeValid, setAgeError) }
+              contentError={ ageError }
+              autofocus={ false }
+            />
+          </div>
+          <div>
+            <InputText 
+              id='regForm__password__id'
+              type='password'
+              placeholder='Придумайте пароль'
+              setContent={ setPassword }
+              isContentValid={ isPasswordValid }
+              checkContent={ checkPassword.bind(null, setIsPasswordValid, setPasswordError) }
+              contentError={ passwordError }
+              autofocus={ false }
+            />
+          </div>
 
-      <div>
-        <InputText 
-          id='regForm__surname__id'
-          placeholder='Введите фамилию'
-          setContent={ setSurname }
-          isContentValid={ isSurnameValid }
-          checkContent={ checkSurname.bind(null, setIsSurnameValid, setSurnameError) }
-          contentError={ surnameError }
-          onKeyDownHandler={ onKeyDownHandler }
-          autofocus={ false }
-          focus={ focusedElement === 1 }
-        />
-      </div>
+          </div>
 
-      <div>
-        <InputText 
-          id='regForm__email__id'
-          placeholder='Введите e-mail' 
-          setContent={ setEmail }
-          isContentValid={ isEmailValid }
-          checkContent={ checkEmail.bind(null, setIsEmailValid, setEmailError) }
-          contentError={ emailError }
-          onKeyDownHandler={ onKeyDownHandler }
-          autofocus={ false }
-          focus={ focusedElement === 2 }
-        />
-      </div>
 
-      <div>
-        <InputText 
-          id='regForm__password__id'
-          type='password'
-          placeholder='Придумайте пароль'
-          setContent={ setPassword }
-          isContentValid={ isPasswordValid }
-          checkContent={ checkPassword.bind(null, setIsPasswordValid, setPasswordError) }
-          contentError={ passwordError }
-          onKeyDownHandler={ onKeyDownHandler }
-          autofocus={ false }
-          focus={ focusedElement === 4 }
-        />
-      </div>
+          <div className={ s.right }>
+          
+          <div>
+            <InputText 
+              id='regForm__surname__id'
+              placeholder='Введите фамилию'
+              setContent={ setSurname }
+              isContentValid={ isSurnameValid }
+              checkContent={ checkSurname.bind(null, setIsSurnameValid, setSurnameError) }
+              contentError={ surnameError }
+              autofocus={ false }
+            />
+          </div>
+          <div>
+            <InputText 
+              id='regForm__city__id'
+              placeholder='Укажите город' 
+              setContent={ setCity }
+              isContentValid={ isCityValid }
+              checkContent={ checkCity.bind(null, setIsCityValid, setCityError) }
+              contentError={ cityError }
+              autofocus={ false }
+            />
+          </div>
+          <div>
+            <InputText 
+              id='regForm__hobby__id'
+              placeholder='Укажите интересы(frongend, backend...)' 
+              setContent={ setHobby }
+              isContentValid={ isHobbyValid }
+              checkContent={ checkHobby.bind(null, setIsHobbyValid, setHobbyError) }
+              contentError={ hobbyError }
+              autofocus={ false }
+            />
+          </div>
+          <div>
+            <InputText 
+              id='regForm__passwordCopy__id'
+              type='password'
+              placeholder='Повторите пароль'
+              setContent={ setPasswordCopy }
+              isContentValid={ isPasswordCopyValid }
+              checkContent={ checkPasswordCopy.bind(null, setIsPasswordCopyValid, setPasswordCopyError, password) }
+              contentError={ passwordCopyError }
+              autofocus={ false }
+            />
+          </div>
 
-      <div className={ s.gap }>
-        <InputText 
-          id='regForm__passwordCopy__id'
-          type='password'
-          placeholder='Повторите пароль'
-          setContent={ setPasswordCopy }
-          isContentValid={ isPasswordCopyValid }
-          checkContent={ checkPasswordCopy.bind(null, setIsPasswordCopyValid, setPasswordCopyError, password) }
-          contentError={ passwordCopyError }
-          onKeyDownHandler={ onKeyDownHandler }
-          autofocus={ false }
-          focus={ focusedElement === 5 }
-        />
-      </div>
+          </div>
+        </div>
+        
 
-      <div className={ s.buttonWrapper }>
-        <button 
-          className={ isAllValid ? s.button : s.buttonInactiv }
-          //className={ s.button }
-          onClick={ onSubmitHandler }
-        >Зарегистрироваться</button>
-      </div>
+        <div className={ s.buttonWrapper }>
+          <button 
+            className={ isAllValid ? s.button : s.buttonInactiv }
+            //className={ s.button }
+            onClick={ onSubmitHandler }
+          >Зарегистрироваться</button>
+        </div>
       </form>
       </div>
     </div>

@@ -3,6 +3,8 @@ import { Outlet, Link } from 'react-router-dom';
 
 import Modal from '../Modal/Modal.jsx';
 
+import sprite from '../../assets/images/sprite.svg';
+
 import { 
   languages,
   modalModes,
@@ -19,7 +21,9 @@ function App() {
       <div className={ s.logo }></div>
       <div className={ s.link }>Курсы</div>
       <div className={ s.link }>Прогресс</div>
-      <div className={ s.bell }></div>
+      <svg className={ s.bell }>
+        <use href={ sprite + `#bellOff` } className={ s.bellOffSvg }></use>
+      </svg>
       <Link to='auth' className={ s.log }>Вход</Link>
       <Link to='reg' className={ s.reg }>Регистрация</Link>
     </header>

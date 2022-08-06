@@ -9,21 +9,32 @@
 }
 
 .container {
-  width: 379px;
-  height: 414px;
+  height: fit-content;
+  width: fit-content;
   margin: 0 auto;
   padding: 30px 56px 20px 56px;
   background-color: v.$white;
+}
+
+.subcontainer {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.left {
+  height: 414px;
+}
+
+.right {
+  height: 414px;
+  margin-left: 20px
 }
 
 .auth {
   @include m.title;
   text-align: center;
   margin-bottom: 10px;
-}
-
-.container {
-  height: fit-content;
 }
 
 .buttonWrapper {

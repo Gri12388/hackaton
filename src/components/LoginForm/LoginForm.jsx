@@ -48,9 +48,30 @@ function LoginForm() {
     if(isAllValid) onSubmitHandler();
   }
 
-  function onSubmitHandler(e) {
-    console.log('hello, I am LoginForm');
-    navigate('/app/base');
+  async function onSubmitHandler(e) {
+    e.preventDefault();
+    try {
+      let query = 'http://62.109.19.55:8080/api/auth';
+      query = query + `/${email}/${password}`
+      const response = await fetch(query, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          mode: 'no-cors',
+          referrerPolicy: "unsafe-url",
+        },
+        body: {}
+      });
+      console.log(response);
+      if (response.status === 200) navigate('/courses');
+      else setMessageError('Извините, но Вы не зарегистрированы. Попробуйте еще раз.');
+      const result = await response.text();
+      console.log(result);
+    }
+    catch (err) {
+      console.error(err);
+    }
+
   }
 
   //console.log (isAllValid);
