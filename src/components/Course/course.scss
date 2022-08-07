@@ -1,0 +1,57 @@
+@use '../../assets/styles/variables.scss' as v;
+@use '../../assets/styles/mixins.scss' as m;
+
+.background {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
+}
+
+.container {
+  width: 90%;
+  height: fit-content;
+
+  margin: 0 auto;
+  padding: 34px 94px 0 94px;
+  background-color: v.$white;
+}
+
+.title {
+  @include m.title1;
+  margin-bottom: 5px;
+}
+
+.description {
+  width: 100%;
+  height: fit-content;
+  //height: 60px;
+  min-height: 150px;
+  background-color: v.$grayLight;
+}
+
+.subcontainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: fit-content;
+  min-height: 45vh;
+  padding-top: 20px;
+}
+
+.learn, .tests {
+  width: 45%;
+  //height: fit-content;
+  height: 50px;
+  background-color: white;
+}
+
+// .tests {
+
+// }
+
+.subtitle {
+  @include m.subtitle;
+  text-align: center;
+  margin-bottom: 20px;
+}
+

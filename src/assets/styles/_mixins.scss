@@ -68,6 +68,16 @@
   cursor: pointer;
 }
 
+@mixin title1 {
+  @include text(v.$inter800, 26px, 31px, v.$black);
+  cursor: pointer;
+}
+
+@mixin subtitle {
+  @include text(v.$inter500, 21px, 24px, v.$black);
+  cursor: pointer;
+}
+
 @mixin buttonInactiv {
   @extend %button;
   @include text7;

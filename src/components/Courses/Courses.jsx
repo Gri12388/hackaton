@@ -26,7 +26,7 @@ const coursesElements = courses.map((item, index) => {
 })
 
 function onCourseContainer() {
-  debugger
+
   if (courseId) navigate('/course');
   else navigate('/auth');
 }

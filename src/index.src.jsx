@@ -6,6 +6,7 @@ import App from './components/App/App.jsx';
 import LoginForm from './components/LoginForm/LoginForm.jsx';
 import RegForm from './components/RegForm/RegForm.jsx';
 import Courses from './components/Courses/Courses.jsx';
+import Course from './components/Course/Course.jsx';
 
 const root = createRoot(document.getElementById('root'));
 
@@ -16,6 +17,7 @@ root.render(
         <Route path='auth' element={ <LoginForm /> } />
         <Route path='reg' element={ <RegForm /> } />
         <Route path='courses' element={ <Courses /> } />
+        <Route path='course' element={ <Course /> } />
       </Route>
     </Routes>
   </BrowserRouter>

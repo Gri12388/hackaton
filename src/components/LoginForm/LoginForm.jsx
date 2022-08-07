@@ -74,7 +74,7 @@ function LoginForm() {
         const temp = await response.text() 
         sessionStorage.setItem('courseId', temp);
       } 
-      debugger     
+           
       await onCourseClick();
     }
     catch (err) {
