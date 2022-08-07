@@ -14,12 +14,10 @@ export function useCourseClick() {
           referrerPolicy: "unsafe-url",
         },
       });
-      console.log(response);
 
       const result = await response.json();
-      sessionStorage.setItem('courses', JSON.stringify(result));
+      localStorage.setItem('courses', JSON.stringify(result));
       navigate('/courses');
-      console.log(result);
     }
     catch (err) {
       console.error(err);

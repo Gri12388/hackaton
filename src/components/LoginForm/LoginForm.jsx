@@ -9,6 +9,7 @@ import {
   checkEmail,
   checkIfAllValid,
   checkPassword,
+  hosts,
   validationErrors,
  } from '../../data/data.js';
 
@@ -53,7 +54,7 @@ function LoginForm() {
   async function onSubmitHandler(e) {
     e.preventDefault();
     try {
-      let query = 'http://62.109.19.55:8080/api/auth';
+      let query = hosts.javaHost + '/api/auth';
       query = query + `/${email}/${password}`
       const response = await fetch(query, {
         method: 'POST',
@@ -64,7 +65,7 @@ function LoginForm() {
         },
         body: {}
       });
-      console.log(response);
+
 
       if (response.status !== 200) {
         setMessageError('Извините, но Вы не зарегистрированы. Попробуйте еще раз.');
@@ -72,7 +73,7 @@ function LoginForm() {
       }
       else {
         const temp = await response.text() 
-        sessionStorage.setItem('courseId', temp);
+        localStorage.setItem('courseId', temp);
       } 
            
       await onCourseClick();

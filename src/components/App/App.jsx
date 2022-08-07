@@ -17,7 +17,7 @@ function App() {
   const onCourseClick = useCourseClick();
 
   useEffect(() => {
-    if (sessionStorage.key(0)) sessionStorage.clear();
+    if (localStorage.key(0)) localStorage.clear();
   });
 
   function onLogoClick() {

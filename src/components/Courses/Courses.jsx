@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import s from './courses.scss';
@@ -6,10 +6,12 @@ import s from './courses.scss';
 function Courses() {
 
 const navigate = useNavigate();
-const courseId = sessionStorage.getItem('courseId');
+const courseId = localStorage.getItem('courseId');
 
 
-const courses = JSON.parse(sessionStorage.getItem('courses'));
+const courses = useMemo(() => {
+  return JSON.parse(localStorage.getItem('courses'));
+},[]);
 
 const coursesElements = courses.map((item, index) => {
   return (

@@ -15,6 +15,7 @@ import {
   checkPassword,
   checkPasswordCopy,
   checkSurname,
+  hosts,
   validationErrors,
 } from '../../data/data.js';
 
@@ -74,7 +75,6 @@ function RegForm() {
 
   function preventDefault(e) {
     e.preventDefault();
-    //if(isAllValid) onSubmitHandler();
   }
 
   function createBody() {
@@ -88,7 +88,6 @@ function RegForm() {
       hobby: hobby,
       age: Date.parse(age),
     });
-    console.log(json);
     return json;
   }
 
@@ -101,7 +100,7 @@ function RegForm() {
   async function onSubmitHandler(e) {
     e.preventDefault();
     try {
-      const response = await fetch('http://62.109.19.55:8080/api/registration', {
+      const response = await fetch(hosts.javaHost + '/api/registration', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -110,12 +109,10 @@ function RegForm() {
         },
         body: createBody()
       });
-      console.log(response);
 
       if (response.status === 200) navigate('/auth');
       else setMessageError('Извините, но зарегистрироваться не удалось. Попробуйте еще раз');
       const result = await response.text();
-      console.log(result);
     }
     catch (err) {
       console.error(err);
