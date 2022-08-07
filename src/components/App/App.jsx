@@ -2,16 +2,8 @@ import React, { createContext, useEffect, useState } from 'react';
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 
 import { useCourseClick } from '../../data/hooks.jsx';
-import Modal from '../Modal/Modal.jsx';
 
 import sprite from '../../assets/images/sprite.svg';
-
-
-import { 
-  languages,
-  modalModes,
- } from '../../data/data.js';
-
  
 import c from '../../assets/styles/common.scss';
 import s from './app.scss';
@@ -26,7 +18,7 @@ function App() {
 
   useEffect(() => {
     if (sessionStorage.key(0)) sessionStorage.clear();
-  }, []);
+  });
 
   function onLogoClick() {
     if (location.pathname !== '/') navigate('/');
@@ -65,14 +57,13 @@ function App() {
       </div>
 
       <div className={ s.footerRight }>
-        <div className={ `${s.link} ${s.gap}` }>Курсы</div>
+        <div className={ `${s.link} ${s.gap}` } onClick={ onCourseClick } >Курсы</div>
         <div className={ s.link }>Прогресс</div>
         <div className={ s.link }>О компании</div>
       </div>
     </footer>
   </div>
   );
-  
 }
 
 export default App;

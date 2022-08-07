@@ -21,6 +21,8 @@ function Modal({
     setModalMode(modalModes.hidden);
   }
 
+  if (modalMode === modalModes.hidden) return null;
+
   return (
     <div className={ s.background }>
       <div className={ s.foreground }>
