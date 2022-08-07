@@ -17,7 +17,7 @@ function App() {
   const onCourseClick = useCourseClick();
 
   useEffect(() => {
-    if (localStorage.key(0)) localStorage.clear();
+    if (localStorage.key(0) && (location.pathname === '/' || location.pathname === '/auth' || location.pathname === '/reg')) localStorage.clear();
   });
 
   function onLogoClick() {

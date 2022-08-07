@@ -9,9 +9,8 @@ const navigate = useNavigate();
 const courseId = localStorage.getItem('courseId');
 
 
-const courses = useMemo(() => {
-  return JSON.parse(localStorage.getItem('courses'));
-},[]);
+const courses = JSON.parse(localStorage.getItem('courses'));
+
 
 const coursesElements = courses.map((item, index) => {
   return (
