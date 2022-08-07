@@ -17,3 +17,7 @@
 .buttonInactiv {
   @include m.buttonInactiv;
 }
+
+.pointer {
+  cursor: pointer;
+}

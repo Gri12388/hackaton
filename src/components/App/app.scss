@@ -71,10 +71,14 @@
 }
 
 .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 153px;
   height: 57px;
   margin-left: 20px;
-  background-color: red;
+  border-radius: 20px;
+  background-color: v.$grayLight;
 }
 
 .link {
@@ -85,7 +89,7 @@
   transition: v.$t05s;
   &:hover {
     color: v.$blue;
-    
+    cursor: pointer;
   }
 }
 
@@ -106,6 +110,9 @@
   width: fit-content;
   height: 30px;
   margin-left: 20px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .reg {
@@ -113,6 +120,9 @@
   width: fit-content;
   height: 30px;
   margin-left: 20px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .subcontainer {
@@ -126,12 +136,18 @@
   width: fit-content;
   height: fit-content;
   margin-bottom: 19px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .email {
   @include m.text2;
   width: fit-content;
   height: fit-content;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .gap {

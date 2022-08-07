@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCourseClick } from '../../data/hooks.jsx';
 
 import { AppContext } from '../App/App.jsx';
 import InputText from '../InputText/InputText.jsx';
@@ -17,6 +18,7 @@ function LoginForm() {
 
   const context = useContext(AppContext); 
   const navigate = useNavigate();
+  const onCourseClick = useCourseClick();
 
   const [email, setEmail] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(false);
@@ -63,18 +65,24 @@ function LoginForm() {
         body: {}
       });
       console.log(response);
-      if (response.status === 200) navigate('/courses');
-      else setMessageError('Извините, но Вы не зарегистрированы. Попробуйте еще раз.');
-      const result = await response.text();
-      console.log(result);
+
+      if (response.status !== 200) {
+        setMessageError('Извините, но Вы не зарегистрированы. Попробуйте еще раз.');
+        return;
+      }
+      else {
+        const temp = await response.text() 
+        sessionStorage.setItem('courseId', temp);
+      } 
+      debugger     
+      await onCourseClick();
     }
     catch (err) {
       console.error(err);
     }
-
   }
 
-  //console.log (isAllValid);
+
 
   return (
     <div className={ s.background }>

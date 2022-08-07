@@ -1,6 +1,6 @@
 
 export const hosts = {
-  host6210919553000: 'http://62.109.19.55:8080',
+  javaHost: 'http://62.109.19.55:8080',
 }
 
 export const methods = {
@@ -197,3 +197,5 @@ export function checkAge(setIsContentValid, setContentError, content) {
     }
   else setIsContentValid(true);
   }
+
+  
